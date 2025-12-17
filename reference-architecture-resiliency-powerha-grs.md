@@ -28,14 +28,16 @@ content-type: reference-architecture
 {: toc-content-type="reference-architecture"}
 {: toc-version="1.0"}
 
-This is a baseline solution pattern containing the design and architecture decisions for a PowerVS resiliency solution for IBM i workloads to meet common requirements as described in this use case. Actual solutions depend on the specific requirements that are set by the client. Review the following summary of the use case for this reference architecture:
+This is a baseline solution pattern that captures the key design and architecture decisions for implementing IBM PowerHA SystemMirror with Global Replication Services (GRS) on IBM Power Virtual Server (PowerVS) to support high availability and disaster recovery for IBM i workloads. The pattern addresses common resiliency requirements such as local high availability, geographic disaster recovery, and controlled failover across PowerVS locations.
 
-![IBM i resiliency summary](/images/usecase.svg "Reference Summary"){: caption="Reference Architecture Summary for Deploying Resilient IBM i workloads on {{site.data.keyword.powerSysFull}}" caption-side="bottom"}{: external download="usecase.svg"}
+Actual customer implementations may vary based on workload characteristics, recovery objectives, regional availability, and operational requirements. Review the following decision tree to understand how this reference architecture aligns PowerHA and GRS capabilities with typical IBM i resiliency use cases in PowerVS environments.
+
+![IBM PowerHA SystemMirror for i (PHA) and Global Replication Service (GRS) on Power Virtual Server (PVS) summary](/images/phagrs.svg "Reference Summary"){: caption="Reference Architecture Summary for Deploying Resilient IBM i workloads on {{site.data.keyword.powerSysFull}}" caption-side="bottom"}{: external download="usecase.svg"}
 
 ## Architecture diagram
 {: #architecture-diagram}
 
-![PowerHA and Global Replication Services on PowerVS reference architecture](/images/phagrspvsarchnumbered.svg "Resiliency Architecture Diagram"){: caption="Deploying PowerHA and GRS on {{site.data.keyword.powerSysFull}} reference architecture" caption-side="bottom"}{: external download="resiliencypvsarchnumbered.svg"}
+![PowerHA SystemMirror and Global Replication Services on PowerVS reference architecture](/images/phagrspvsarchnumbered.svg "Resiliency Architecture Diagram"){: caption="Deploying PowerHA and GRS on {{site.data.keyword.powerSysFull}} reference architecture" caption-side="bottom"}{: external download="resiliencypvsarchnumbered.svg"}
 
 Review the environments that are related to this reference architecture:
 

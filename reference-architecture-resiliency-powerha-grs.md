@@ -57,34 +57,36 @@ The PowerVS resiliency for IBM i workloads architecture covers design considerat
 
 - Compute: Virtual Servers
 
-- Storage: Primary Storage, Backup Storage, Archive Storage
+- Storage: Primary Storage
 
 - Networking: Enterprise Connectivity, BYOIP/Edge gateways, Segmentation, Isolation, Cloud Native Connectivity, Domain name system
 
 - Security: Data security, Identity and access management, Infrastructure and endpoint security
 
-- Resiliency: Backups and Restore, High Availability, Disaster Recovery
+- Resiliency: High Availability, Disaster Recovery
 
 The Architecture Framework provides a consistent approach to design cloud solutions by addressing requirements across a set of "aspects" and "domains", which are technology-agnostic architectural areas that need to be considered for any enterprise solution. For more information, see [Introduction to the Architecture Design Framework](/docs/architecture-framework?topic=architecture-framework-intro).
 
 Following the Architecture Design Framework, Resiliency for PowerVS covers design considerations and architecture decisions for the following aspects and domains:
 
-![heatmap](/images/ibmiphagrsheatmap.svg "IBM i Heatmap"){: caption="IBM PowerHA SystemMirror for i and GRS on PowerVS Heat Map" caption-side="bottom"}{: external download="ibmiphagrsdrheatmap.svg"}
+![heatmap](/images/ibmiphagrsdrheatmap.svg "IBM i Heatmap"){: caption="IBM PowerHA SystemMirror for i and GRS on PowerVS Heat Map" caption-side="bottom"}{: external download="ibmiphagrsdrheatmap.svg"}
 
 ## Requirements
 {: #requirements-list}
 
 | Aspect         | Requirements                                                                                                                                                                                                                                                                                  |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Compute            | Provide CPU and RAM to support resiliency components.                                                                                                                                                                                                                                             |
-| Storage            | Provide storage to support replication activities. Provide storage to support customer retention schedules.                                                                                                                                                                                       |
-| Networking         | Provide enterprise to cloud network connectivity to recovery site. Provide private connectivity between workloads across protected and recovery sites. Deploy workloads in an isolated environment and enforce information flow policies. Provide BYOIP, Edge Routing, VLAN segmentation and DNS |
-| Security           | Help ensure data encryption at rest and in transit for the storage layer. Protect the boundaries of the application against denial-of-service and application-layer attacks.                                                                                                                           |
-| Resiliency         | Provide local OS level high availability between two IBM i LPARs. Provide backups for data retention for IBM i workloads. Recovery Time Objective (RTO) and Recovery Point Objective(/RPO) = 1 hours/1 hours.  99.99% Infrastructure Availability                                                     |
-| Service Management | Monitor the usage and performance of the resiliency components                                                                                                                                                                                                                                    |
+| Compute            | Provision sufficient PowerVS compute resources (CPU and memory) to support IBM i LPARs and PowerHA SystemMirror for i at both the primary and disaster recovery locations. Compute sizing at the recovery site must support full production workload activation during a disaster recovery event.                                                                                                                                                                                                                                             |
+| Storage            | Use IBM Power Virtual Server storage, backed by IBM FlashSystem, to host Independent Auxiliary Storage Pools (IASPs). Storage must support Global Replication Services (GRS) asynchronous replication between PowerVS locations and meet application performance and capacity requirements. Storage configuration must align with PowerHA for i and GRS limits.                                                                                                                                                                                      |
+| Networking         | Provide reliable, private IP connectivity between PowerVS locations to support PowerHA cluster communication and GRS replication traffic. Connectivity must support cross-location communication using IBM Cloud networking services such as Transit Gateway, VPN, or Direct Link. DNS resolution must support role changes during disaster recovery activation.
+ |
+| Security           | Ensure encryption of data at rest and in transit for PowerVS storage and replication traffic. Protect management and application boundaries using IBM Cloud security controls. Administrative access to PowerHA and PowerVS resources must follow least-privilege principles.                                                                                                                           |
+| Resiliency         | Provide site-level disaster recovery for IBM i workloads using IBM PowerHA SystemMirror for i in combination with Global Replication Services (GRS) and IASP switching. This pattern is designed to target an Recovery Point Objective (RPO) of 15 minutes and an Recovery Time Objective (RTO) of 1 hour, subject to workload characteristics, replication behavior, network conditions, and operational procedures. This pattern does not provide local high availability.                                                     |
+| Service Management | Enable monitoring and logging for PowerVS resources, PowerHA cluster events, storage replication status, and network connectivity using IBM Cloud observability services. Monitoring must support disaster recovery readiness, failover testing, and recovery validation.                                                                                                                                                                                                                                   |
 {: caption="Resiliency for PowerVS requirements" caption-side="bottom"}
 
-
+RPO and RTO values are target objectives and are not guaranteed. Actual recovery times and data loss depend on replication lag at the time of failure, workload I/O characteristics, and operational readiness.
+{: note}
 
 
 ## Components

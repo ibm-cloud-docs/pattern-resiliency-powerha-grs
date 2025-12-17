@@ -19,8 +19,6 @@ Resiliency is the ability for a workload to meet a specific target Service Level
 
 The following are requirements for the resiliency aspect for the {{site.data.keyword.powerSys_notm}} on IBM i pattern:
 
-- A backup of all essential IBM i data.
-- Provide the operating system level local high availability.
 - Replicate {{site.data.keyword.powerSys_notm}} workloads from a protected site to a recovery site in a different region to enable the failover of workloads if there is a failure in the protected site.
 - Failover that meets the required Recovery Time Objectives (RTO) and Recovery Point Objectives (RPO) of the application.
 
@@ -28,29 +26,6 @@ Resiliency needs to be considered for both the infrastructure and application le
 {: note}
 
 It's important to validate what offerings are available in the regions you are deploying. Check for paired data centers and validate if they meet the deployment criteria for client-specific requirements.
-
-## Resiliency design considerations for backup
-{: #backup-considerations}
-
-FalconStor Virtual Tape Library (VTL) is an optimized backup and deduplication solution that provides tape library emulation, high-speed backup or restore, data archival to supported S3 clouds for long-term storage, global data deduplication, enterprise-wide replication, and long-term cloud-based container archive, without requiring changes to the existing environment. The backup offering VPC and the {{site.data.keyword.powerSys_notm}} workspaces should be in the same region and connected by using the local Transit Gateway. For more Information, see [Managing a Virtual Tape Library](/docs/power-iaas?topic=power-iaas-manage-vtl).
-
-Review key considerations and benefits when deploying the Falconstor VTL solution:
-
-- File-level backup and restore
-- Image-level backup and restore
-- Policy management down to the directory and file object or type levels
-- Backup and archive features that include long-term retention of data
-- Backup and restore tool for periodic copies of data and applications to a separate, secondary device or secondary site and then by using those copies to recover the data and applications.
-- Up to 95% data reduction. FalconStor reduces the storage capacity that is required by backup data on-premises and in the cloud by up to 95%.
-- Ransomware protection to recover data from any point in time with air-gapped, immutable backups
-- StorSafe VTL exports virtual tapes as physical tapes, and tracks their location with a management dashboard for offsite protection. Virtual tapes can remain in the library for fast restore or can be stubbed when exported to local object storage.
-- High performance to improve both backup and recovery
-- Modernize by using FalconStor that's 100% compatible with existing backup software, hardware, and operational procedures.
-
-This third-party product is provided by a vendor outside of {{site.data.keyword.cloud_notm}} and is subject to a separate agreement between you and the third party if you accept their terms. {{site.data.keyword.cloud_notm}} is not responsible for the product and makes no privacy, security, performance, support, or other commitments regarding the product.
-{: important}
-
-For sizing and configuration information, contact [FalconStor VTL Support](https://www.falconstor.com/support/technical-support){: external}. For more information about the methods, see [FalconStor VTL summary](https://cloud.ibm.com/catalog/content/vtltile-tags-v10.03-01-f1e88e51-7e3d-4fbc-a7ed-3ab9adb2afea-global#about){: external}. The Falconstor sizing calculator can be found by going to [IBM Power Sizing Calculator](https://www.falconstor.com/sizing-calculator/?source=ibm){: external}. For additional information, review the [falconstor deployment guide](https://falconstor-download.s3.us-east.cloud-object-storage.appdomain.cloud/FalconStor%20VTL%20for%20IBM%20Deployment%20Guide.pdf){: external}.
 
 ## Resiliency design considerations for high availability
 {: #ha-considerations}

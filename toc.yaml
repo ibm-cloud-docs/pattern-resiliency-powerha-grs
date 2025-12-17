@@ -15,7 +15,7 @@ toc:
   - navgroup:
       id: architecture
       topics:
-      - rreference-architecture-resiliency-powerha-grs.md
+      - reference-architecture-resiliency-powerha-grs.md
   - navgroup:
       id: plan
       topics:

@@ -32,27 +32,23 @@ This is a baseline solution pattern that captures the key design and architectur
 
 Actual customer implementations may vary based on workload characteristics, recovery objectives, regional availability, and operational requirements. Review the following decision tree to understand how this reference architecture aligns PowerHA and GRS capabilities with typical IBM i resiliency use cases in PowerVS environments.
 
-![IBM PowerHA SystemMirror for i (PHA) and Global Replication Service (GRS) on Power Virtual Server (PVS) summary](/images/phagrs.svg "Reference Summary"){: caption="Reference Architecture Summary for Deploying Resilient IBM i workloads on {{site.data.keyword.powerSysFull}}" caption-side="bottom"}{: external download="usecase.svg"}
+![Solution Decision Tree](/images/phagrsdtree.svg "Reference Summary"){: caption="Reference Architecture Summary for Deploying Resilient IBM i workloads on {{site.data.keyword.powerSysFull}}" caption-side="bottom"}{: external download="phagrsdtree.svg"}
 
 ## Architecture diagram
 {: #architecture-diagram}
 
-![PowerHA SystemMirror and Global Replication Services on PowerVS reference architecture](/images/phagrspvsarchnumbered.svg "Resiliency Architecture Diagram"){: caption="Deploying PowerHA and GRS on {{site.data.keyword.powerSysFull}} reference architecture" caption-side="bottom"}{: external download="resiliencypvsarchnumbered.svg"}
+![IBM PowerHA SystemMirror and Global Replication Services on PowerVS reference architecture](/images/phagrspvsarchnumbered.svg "Resiliency Architecture Diagram"){: caption="Deploying PowerHA and GRS on {{site.data.keyword.powerSysFull}} reference architecture" caption-side="bottom"}{: external download="resiliencypvsarchnumbered.svg"}
 
 Review the environments that are related to this reference architecture:
 
-1. Provider connects the environment by using a direct link for private connectivity.
-2. The direct link then connects to a Local Transit Gateway. This advertises and routes on-premises traffic to VPC for gateway or firewall inspection.
-3. The transit gateway connects to management VPC, which hosts your Next-Generation Firewall, management subnets for your bastion hosts, and your Virtual Private Endpoint.
-4. Falconstor Storsight VSI is deployed as a monitoring dashboard for the backup solution.
-5. A Virtual Private Endpoint is deployed to communicate from the falconstor appliance to the Cloud Services Layer: Cloud Object storage. 
-6. PowerVS workspace is deployed within the {{site.data.keyword.powerSysFull}} environment and connects to the Power Edge Router (PER).
-7. A local Power high availability standard cluster is then deployed within the workspace to provide local clustering. It is utilizing PowerHA SystemMirror for i as the software and geographic mirroring as the replication method. 
-8. The management and workload VPC mentioned from the primary site is also deployed in disaster recovery.
-9. Global Replication Service (GRS) is deployed as part of Disaster Recovery Storage Area Network to Storage Area Network replication.
-10. There is a GRS controller Logical Partition that is deployed at both the primary and the disaster recovery (DR) site.
-11. Communication for GRS SAN to SAN traffic between sites occurs over the {{site.data.keyword.IBM_notm}} private backbone.
-12. Replication of the controller Logical Partitions occurs over the Global Transit gateway.
+- Provider connects the environment by using a direct link for private connectivity.
+- The direct link then connects to a Local Transit Gateway. This advertises and routes on-premises traffic to VPC for gateway or firewall inspection.
+- The transit gateway connects to management VPC, which hosts your Next-Generation Firewall, management subnets for your bastion hosts, and your Virtual Private Endpoint.
+- A Virtual Private Endpoint is deployed to the Cloud Services Layer: Cloud Object storage. 
+- PowerVS workspace is deployed within the {{site.data.keyword.powerSysFull}} environment and connects to the Power Edge Router (PER).
+- A Power high availability cluster is then deployed within the workspace to provide DR clustering and orchestration. It is utilizing PowerHA SystemMirror for i as the software and Global Replication Services as the replication method. This allows the replication of storage volumes in Independant Auxillary Storage Pools (IASP)
+- The management and workload VPC mentioned from the primary site is also deployed in disaster recovery.
+- Communication for GRS SAN to SAN traffic between sites occurs over the {{site.data.keyword.IBM_notm}} private backbone.
 
 ## Design scope
 {: #design-scope}

@@ -49,6 +49,11 @@ toc:
             navtitle: Resiliency
           - topic: service-management-architecture.md
             navtitle: Service management
+      - topicgroup:
+          label: Use Cases
+          topics:
+          - topic: faq.md
+            navtitle: Multi-Region DR using PowerHA SystemMirror for i and Global Replication Service
   - navgroup:
       id: reference
       topics:

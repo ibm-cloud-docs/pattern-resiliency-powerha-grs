@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-12-17"
+lastupdated: "2025-12-18"
 
 subcollection: pattern-pvs-ibmi-resiliency
 
@@ -28,8 +28,8 @@ PowerVS storage supports Global Replication Services (GRS), which enables asynch
 {: #storage-constructs}
 
 IBM i uses Auxiliary Storage Pools (ASPs) to organize disk storage. There are two relevant storage constructs in this pattern:
-- System ASP – Contains the IBM i operating system, licensed internal code, and system objects
-- Independent Auxiliary Storage Pool (IASP) – Contains application data and can be managed independently of the system ASP
+- System Auxillary Storage Pool (ASP): Contains the IBM i operating system, licensed internal code, and system objects
+- Independent Auxiliary Storage Pool (IASP): Contains application data and can be managed independently of the system ASP
 
 In this pattern, only IASPs are used for disaster recovery.
 

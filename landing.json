@@ -22,19 +22,6 @@
   },
   "section_highlights": [
     {
-      "title": "IBM Power Systems Virtual Server Guide for IBM i",
-      "description": "This redbook provides in-depth recommendations on deploying IBM i environments on Power Virtual Server",
-      "href": "https://www.redbooks.ibm.com/abstracts/sg248513.html",
-      "type": "redbook"
-    },
-    {
-      "title": "IBM Power Systems high availability and disaster recovery updates: Planning for a multicloud environment",
-      "description": "This IBM Redbook provides in-depth recommendations on how to deploy disaster recovery in a multicloud environment.",
-      "href": "https://www.redbooks.ibm.com/abstracts/redp5663.html",
-      "type": "redbook",
-      "recommended": true
-    },
-    {
       "title": "Configuring PowerHA with Global Replication Services (7.5)",
       "description": "This document explains how to configure PowerHA SystemMirror for i on IBM Power Virtual Server to support IBM i disaster recovery using Independent Auxiliary Storage Pools.",
       "href": "https://fortradocs.atlassian.net/wiki/spaces/IWT/pages/2985656345/Configuring+PowerHA+with+Global+Replication+Services+7.5",

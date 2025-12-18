@@ -7,82 +7,61 @@
   "section_topics": {
     "links": [
       {
-        "title": "Topic title",
-        "href": "/docs/overview?topic=overview-get-started-checklist"
+        "title": "Welcome to PowerHA SystemMirror for i and Global Replication Services on PowerVS",
+        "href": "/docs/pattern-resiliency-powerha-grs?topic=pattern-resiliency-powerha-grs-overview"
       },
       {
-        "title": "Topic title",
-        "href": "/docs/overview?topic=overview-get-started-checklist"
+        "title": "Reference Architecture",
+        "href": "/docs/pattern-resiliency-powerha-grs?topic=pattern-resiliency-powerha-grs-power-virtual-server-on-ibmi"
       },
       {
-        "title": "Topic title",
-        "href": "/docs/overview?topic=overview-get-started-checklist"
-      },
-      {
-        "title": "Topic title",
-        "href": "/docs/overview?topic=overview-get-started-checklist"
-      },
-      {
-        "title": "Topic title",
-        "href": "/docs/overview?topic=overview-get-started-checklist"
+        "title": "Use Case",
+        "href": "/docs/pattern-resiliency-powerha-grs?topic=pattern-resiliency-powerha-grs-dr-usecase"
       }
     ]
   },
   "section_highlights": [
     {
-      "title": "Resource title",
-      "description": "Short description of resource content.",
-      "href": "https://www.example.ibm.com/link/to/resource",
-      "type": "blog"
+      "title": "IBM Power Systems Virtual Server Guide for IBM i",
+      "description": "This redbook provides in-depth recommendations on deploying IBM i environments on Power Virtual Server",
+      "href": "https://www.redbooks.ibm.com/abstracts/sg248513.html",
+      "type": "redbook"
     },
     {
-      "title": "Db2 Optimization Techniques for SAP Database Migration to the Cloud",
-      "description": "This IBM Redbook provides in-depth recommendations for the source system database export.",
-      "href": "https://www.redbooks.ibm.com/abstracts/sg248531.html",
+      "title": "IBM Power Systems high availability and disaster recovery updates: Planning for a multicloud environment",
+      "description": "This IBM Redbook provides in-depth recommendations on how to deploy disaster recovery in a multicloud environment.",
+      "href": "https://www.redbooks.ibm.com/abstracts/redp5663.html",
       "type": "redbook",
+      "recommended": true
+    },
+    {
+      "title": "Configuring PowerHA with Global Replication Services (7.5)",
+      "description": "This document explains how to configure PowerHA SystemMirror for i on IBM Power Virtual Server to support IBM i disaster recovery using Independent Auxiliary Storage Pools.",
+      "href": "https://fortradocs.atlassian.net/wiki/spaces/IWT/pages/2985656345/Configuring+PowerHA+with+Global+Replication+Services+7.5",
+      "type": "blog",
+      "recommended": true
+    },
+    {
+      "title": "PowerHA SystemMirror for i Fortra Wiki",
+      "description": "Learning resources for PowerHA SystemMirror for i",
+      "href": "https://fortradocs.atlassian.net/wiki/spaces/IWT/pages/163577866/PowerHA+SystemMirror+for+i",
+      "type": "blog",
       "recommended": true
     }
   ],
   "section_architectures": [
     {
-      "title": "Acme Test on VPC",
-      "href": "/docs/acme-test?topic=acme-test-reference-architecture",
-      "deployable": true
-    },
-    {
-      "title": "Acme Test on Power Virtual Servers",
-      "href": "/docs/acme-test?topic=acme-test-reference-architecture",
-      "deployable": true
-    },
-    {
-      "title": "Acme Test on Power Virtual Servers",
-      "href": "/docs/acme-test?topic=acme-test-reference-architecture",
-      "deployable": true
-    },
-    {
-      "title": "Acme Test on Power Virtual Servers",
-      "href": "/docs/acme-test?topic=acme-test-reference-architecture",
-      "deployable": true
+      "title": "IBM Power Virtual Server for IBM i reference architecture",
+      "href": "/docs/pattern-pvs-ibmi-resiliency?topic=pattern-pvs-ibmi-resiliency-power-virtual-server-on-IBM",
+      "deployable": false
     }
   ],
   "section_updates": {
     "view_more": "/docs/overview?topic=overview-whatsnew",
     "tiles": [
       {
-        "date": "07 August 2025",
-        "title": "Experimental: Access resources from the Resources tab"
-      },
-      {
-        "date": "07 August 2025",
-        "title": "View counts for all resources in the resource summary widget"
-      },
-      {
-        "date": "17 June 2025",
-        "title": "Experimental: Using AI to answer your questions about IBM Cloud"
-      },
-      {
-        "date": "17 June 2025",
-        "title": "Changes to IBM Cloud projects API method to list all deployed resources"
+        "date": "18 December 2025",
+        "title": "IBM i Resiliency Pattern using PowerHA and Global Replication Services on PowerVS is available for users in the IBM Cloud catalog. "
       }
     ]
   }

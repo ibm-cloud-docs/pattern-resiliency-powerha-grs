@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "title": "<Solution name>",
-  "introduction": "This is a description of what the user will be able to find in the content for your solution.",
+  "title": "IBM i Resiliency Pattern using PowerHA and Global Replication Services on PowerVS",
+  "introduction": "This pattern describes how IBM i 7.5 and PowerHA SystemMirror for i combined with IBM Cloud Power Virtual Server Global Replication Services (GRS) enables high availability (HA) and disaster recovery (DR) for mission-critical workloads. The intent is to provide a reusable reference architecture, implementation sequencing, operational model, and validation approach that customers can apply to build resilient IBM i services in the cloud.",
   "product_page": "https://ibm.com/cloud/solution-page",
   "deployment_url": "https://cloud.ibm.com/catalog/content/url/to/deploy",
   "section_topics": {

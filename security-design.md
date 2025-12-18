@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-10-23"
+  years: 2025
+lastupdated: "2025-12-18"
 
-subcollection: pattern-pvs-ibmi-resiliency
+subcollection: pattern-resiliency-powerha-grs
 
 keywords:
 
@@ -15,7 +15,7 @@ keywords:
 # Security design
 {: #security-design}
 
-The following are requirements for the security aspect for the Power Virtual server Resiliency on AIX pattern:
+The following are requirements for the security aspect for the PowerHA and Global Replication Services on PowerVS:
 
 - Help ensure data encryption at rest and in transit for the storage layer.
 
@@ -24,16 +24,16 @@ The following are requirements for the security aspect for the Power Virtual ser
 ## Security design considerations
 {: #security-design-IBMi}
 
-Security should be applied at all layers of the solution for defense in depth depending on requirements, for example at the network edge, VPCs, and at every compute instance as well as at the application and database layers. In addition, data should be protected both in transit and at rest according to data classification. Controls should be in place to eliminate the need for direct access to the environment, and when direct access is needed, all access should be logged and monitored.
+Security should be applied at all layers of the solution using a defense in depth approach based on customer requirements. This includes security controls at the network edge, within virtual private clouds, and on IBM i logical partitions, as well as at the application and data layers. Data should be protected both in transit and at rest according to data classification requirements. Controls should be in place to minimize the need for direct administrative access to the environment, and when such access is required, all access should be logged and monitored.
 
-It is a best practice to isolate, secure, manage, and monitor all ingress and egress traffic to the environment and to centralize these functions in a hub and spoke model through an Edge VPC. As a result, it's recommended that security and isolation are established by using a combination of Security Groups (SG), Network Access Control Lists (NACL) and routing/firewall rules defined in the Edge VPC. This is in addition to the cloud account-level protection provided in {{site.data.keyword.cloud_notm}} Identity Services.
+It is a best practice to isolate, secure, manage, and monitor ingress and egress traffic to the environment and to centralize these functions in a hub and spoke model using an Edge or Transit VPC. Security and isolation can be established by using a combination of Security Groups, Network Access Control Lists, and routing and firewall rules defined in the Edge or Transit VPC. This is in addition to the cloud account level protection provided by IBM Cloud Identity and Access Management services.
+
+Storage replication between Power Virtual Server locations is performed by Global Replication Services and does not traverse customer managed networks or require customer managed firewall rules, network access control lists, or encryption configuration.
+
+IBM PowerHA SystemMirror for i operates entirely within the IBM i operating system and does not introduce additional externally exposed management endpoints or network services. Application and operating system level security controls remain unchanged during disaster recovery operations and are preserved as part of the Independent Auxiliary Storage Pool.
 
 Consider the following:
-
-- Implementation of firewalls in the Transit/Edge can secure and route traffic to the {{site.data.keyword.cloud_notm}} environment as well as from the customer network.
-
-- Enable logging to facilitate the firewall activity analysis if needed to meet client security IPS/IDS requirements.
-
-- All traffic, both public and private, should route through the Edge/Transit VPC for routing, isolation, and logging.
-
-- To restrict, log and monitor administrative access to the environment, a bastion host is recommended in the Edge VPC for all administrative access. In addition, all bastion access and activity should be logged and monitored through Privileged Access Management (PAM) services.
+- Firewalls deployed in the Edge or Transit VPC can be used to secure and route traffic between the IBM Cloud environment and customer networks.
+- Logging should be enabled to support firewall activity analysis and to meet customer security monitoring requirements.
+- Public and private traffic should be routed through the Edge or Transit VPC to support centralized routing, isolation, and logging.
+- A bastion host is recommended in the Edge or Transit VPC to centralize and audit administrative access to the environment where direct access to IBM i logical partitions is restricted. Bastion access and activity should be logged and monitored using Privileged Access Management services.

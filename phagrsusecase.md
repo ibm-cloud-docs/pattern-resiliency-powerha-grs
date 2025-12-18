@@ -4,7 +4,7 @@ copyright:
   years: 2025
 lastupdated: "2025-12-18"
 
-subcollection: pattern-pvs-ibmi-resiliency
+subcollection: pattern-resiliency-powerha-grs
 
 keywords:
 

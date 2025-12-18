@@ -4,7 +4,7 @@ copyright:
   years: 2025
 lastupdated: "2025-12-18"
 
-subcollection: pattern-pvs-ibmi-resiliency
+subcollection: pattern-resiliency-powerha-grs
 
 keywords:
 
@@ -13,7 +13,6 @@ keywords:
 {{site.data.keyword.attribute-definition-list}}
 
 # Use Case Requirements
-
 {: #requirements}
 
 This section defines the technical, licensing, and operational requirements to implement the disaster recovery for IBM i on IBM Power Virtual Server using IBM PowerHA SystemMirror for i and Global Replication Services use case.

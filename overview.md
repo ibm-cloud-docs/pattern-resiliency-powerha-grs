@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-12-17"
+lastupdated: "2025-12-18"
 
 subcollection: pattern-resiliency-powerha-grs
 
@@ -21,7 +21,8 @@ The pattern focuses on providing application continuity within a PowerVS locatio
 
 This deployment guide provides architectural guidance, configuration considerations, and operational best practices for implementing PowerHA and GRS in PowerVS environments.
 
-Architecture Overview
+## Architecture Overview
+{: #arch-overview}
 
 The solution is built around two primary PowerVS locations, each hosting a Power Virtual Server instance and associated IBM Flashsystem storage volumes.
 
@@ -30,7 +31,8 @@ The solution is built around two primary PowerVS locations, each hosting a Power
 - PowerVS logical partitions (LPARs) host the application workloads and participate in the PowerHA cluster.
 - IBM Cloud networking connects PowerVS instances and enables replication traffic and cluster communication.
 
-Solution Capabilities
+## Solution Capabilities
+{: #solution-capabilities}
 
 This pattern enables the following capabilities:
 - High availability within a PowerVS environment using PowerHA clustering
@@ -45,7 +47,7 @@ This pattern enables the following capabilities:
 
 This pattern assumes:
 - PowerVS instances are provisioned in supported regions for GRS
-- PIBM Flashsystem Storage volumes are used for application data
+- IBM Flashsystem Storage volumes are used for application data
 - PowerHA SystemMirror version compatible with PowerVS is installed and licensed
 - GRS is configured between the selected PowerVS locations
 - Network connectivity and security requirements are in place prior to deployment

@@ -23,7 +23,7 @@ content-type: reference-architecture
 
 {{site.data.keyword.attribute-definition-list}}
 
-# IBM i Resiliency Pattern using PowerHA and Global Replication Services on PowerVS
+# IBM i Disaster Recovery with PowerHA and Global Replication Services on PowerVS
 {: #power-virtual-server-on-ibmi}
 {: toc-content-type="reference-architecture"}
 {: toc-version="1.0"}

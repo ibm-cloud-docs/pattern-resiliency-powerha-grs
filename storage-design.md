@@ -45,12 +45,19 @@ All application data that requires disaster recovery protection must reside in a
 
 IASPs are mandatory for this pattern for the following reasons:
 - Geographic switching
+
 PowerHA SystemMirror for i uses IASPs to perform geographic switching during disaster recovery events.
+
 - Independent activation
+
 IASPs can be varied on at the recovery site without replicating or restarting the IBM i operating system.
+
 - Storage-level replication support
+
 Global Replication Services replicates the PowerVS storage volumes that comprise the IASP. System ASP storage is not supported for GRS-based recovery.
+
 - Predictable recovery workflows
+
 IASPs allow PowerHA to coordinate role changes, IASP activation, and application startup in a controlled and repeatable manner.
 
 ## Storage replication with Global Replication Services 

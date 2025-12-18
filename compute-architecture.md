@@ -14,9 +14,6 @@ keywords: compute, architecture compute
 
 # Architecture decisions for compute
 {: #compute-decisions}
-
-## Architecture decisions for compute
-
 | Architecture decision | Requirement | Decision | Rationale |
 |---|---|---|---|
 | Geographic disaster recovery for IBM i workloads | Provide compute capacity for IBM i logical partitions participating in site level disaster recovery | Power Virtual Server LPARs | Supports site level disaster recovery for IBM i workloads using PowerHA SystemMirror for i and Global Replication Services across Power Virtual Server locations. |
@@ -25,5 +22,4 @@ keywords: compute, architecture compute
 | Disaster recovery workload capacity | Provide compute capacity to run production workloads at the recovery site | Power Virtual Server LPARs | Recovery site logical partitions must be sized to support full production workloads during a disaster recovery event. |
 | Cost optimized recovery compute | Optimize compute costs for the disaster recovery site | Shared Processor Pools | Shared processor pools provide an optional mechanism to reserve processor capacity at the recovery site while enabling flexible allocation during disaster recovery events. |
 | Edge and management services | Provide compute for edge, management, and access services | Virtual Servers for VPC | Virtual servers in edge or management VPCs support administrative and security services and are independent of IBM i disaster recovery operations. |
-
 {: caption="Architecture decisions for compute" caption-side="bottom"}

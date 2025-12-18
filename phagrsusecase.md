@@ -15,28 +15,26 @@ keywords:
 # Use case: Disaster recovery for IBM i using PowerHA SystemMirror for i and Global Replication Services
 {: #dr-usecase}
 
-This use case describes a site level disaster recovery solution for IBM i workloads running on IBM Power Virtual Server using IBM PowerHA SystemMirror for i in combination with Global Replication Services. The solution protects IBM i environments from data center level outages while leveraging IBM Cloud managed storage replication and IBM supported recovery orchestration.
-
-The solution is implemented as a disaster recovery only architecture. It does not provide local high availability within a single Power Virtual Server location and does not include backup, archival storage, or long term data retention capabilities.
+This use case describes a site level disaster recovery solution for IBM i workloads running on IBM Power Virtual Server using IBM PowerHA SystemMirror for i in combination with Global Replication Services. 
+The solution protects IBM i environments from data center level outages while leveraging IBM Cloud managed storage replication and IBM supported recovery orchestration. The solution is implemented as a disaster recovery only architecture. It does not provide local high availability within a single Power Virtual Server location and does not include backup, archival storage, or long term data retention capabilities.
 
 ## Business context
 {: #usecase-business-context}
 
-Organizations running mission critical IBM i workloads require protection from regional outages, infrastructure failures, or planned site evacuations. When deploying IBM i on Power Virtual Server, customers often require a disaster recovery solution that integrates cleanly with IBM Cloud services, avoids complex host based replication, and provides predictable recovery behavior.
+Organizations running mission critical IBM i workloads require protection from regional outages, infrastructure failures, or planned site evacuations. When deploying IBM i on Power Virtual Server, customers often require a disaster recovery solution that integrates cleanly with IBM Cloud services, avoids complex host based replication, and provides predictable recovery behavior. 
 
 This use case addresses those requirements by combining storage level asynchronous replication with operating system level orchestration, using IBM supported technologies that clearly separate replication from recovery logic.
 
 ## Solution overview
 {: #usecase-solution-overview}
 
-This use case combines two complementary technologies, each with a distinct role.
+This use case combines two complementary technologies, each with a distinct role. 
 
-Global Replication Services provides asynchronous replication of Power Virtual Server storage volumes between two geographically separated Power Virtual Server locations. Replication is delivered as a managed IBM Cloud service, operates at the Power Virtual Server storage layer, and is transparent to the IBM i operating system. Storage replication does not use customer managed networks.
+Global Replication Services provides asynchronous replication of Power Virtual Server storage volumes between two geographically separated Power Virtual Server locations. Replication is delivered as a managed IBM Cloud service, operates at the Power Virtual Server storage layer, and is transparent to the IBM i operating system. Storage replication does not use customer managed networks. 
 
-IBM PowerHA SystemMirror for i orchestrates disaster recovery operations. PowerHA does not replicate data. Instead, it coordinates site role changes, activates replicated storage, manages Independent Auxiliary Storage Pools, and controls application startup sequencing at the recovery site.
+IBM PowerHA SystemMirror for i orchestrates disaster recovery operations. PowerHA does not replicate data. Instead, it coordinates site role changes, activates replicated storage, manages Independent Auxiliary Storage Pools, and controls application startup sequencing at the recovery site. 
 
 This separation of responsibilities aligns with IBM and Fortra best practices and simplifies operational recovery.
-
 
 ## Architecture and deployment model
 {: #usecase-architecture-deployment}

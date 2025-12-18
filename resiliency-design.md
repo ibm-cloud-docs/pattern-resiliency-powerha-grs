@@ -15,32 +15,42 @@ keywords:
 # Resiliency design
 {: #resiliency-design}
 
-Resiliency is the ability for a workload to meet a specific target Service Level Objective (SLO), Service Level Availability (SLA), or recover from a service disruption and still meet the required SLA. Resiliency needs to be considered at both the infrastructure and application layers across the entire solution.
+Resiliency is the ability of a workload to continue to meet defined service level objectives and recover from service disruptions while maintaining required availability targets. In this pattern, resiliency is implemented at the infrastructure and operating system orchestration layers to support site level recovery of IBM i workloads running on IBM Power Virtual Server.
 
-The following are requirements for the resiliency aspect for the {{site.data.keyword.powerSys_notm}} on IBM i pattern:
-
-- Replicate {{site.data.keyword.powerSys_notm}} workloads from a protected site to a recovery site in a different region to enable the failover of workloads if there is a failure in the protected site.
-- Failover that meets the required Recovery Time Objectives (RTO) and Recovery Point Objectives (RPO) of the application.
+This pattern focuses on geographic resiliency, sometimes informally referred to as global high availability, by enabling controlled recovery of workloads between geographically separated Power Virtual Server locations. Local operating system high availability within a single location is not a primary objective of this design.
 
 Resiliency needs to be considered for both the infrastructure and application levels. This pattern does not address application or database-specific design.
 {: note}
 
 It's important to validate what offerings are available in the regions you are deploying. Check for paired data centers and validate if they meet the deployment criteria for client-specific requirements.
 
-## Resiliency design considerations for high availability
-{: #ha-considerations}
+## Resiliency objectives
+{: #resiliency-objectives}
 
-The local operating system high availability method is IBM PowerHA SystemMirror for i.
+The resiliency objectives for this pattern are to enable recovery of IBM i workloads following the loss of a Power Virtual Server location while meeting defined recovery objectives. Specifically, this pattern is designed to support:
+- Site level failover of IBM i workloads to a recovery location in a different region
+- Recovery that meets defined Recovery Time Objectives and Recovery Point Objectives based on asynchronous replication behavior
 
-By default, {{site.data.keyword.powerSys_notm}}s are restarted on a different host system if a hardware failure occurs. IBM PowerHA SystemMirror for i provides local clustering for mission-critical workloads. The clustering infrastructure allows you to create and manage multiple systems and system resources as a unified entity. Shared resources enable the cluster to continuously provide essential services to users and applications. Key PowerHA Cluster Functions include heartbeat monitoring for failure detection, activation and release of highly available services IPs, automatic activation of geographically mirrored volume groups, and start/stop/monitor of applications. Failover resource groups can move between cluster members and sites. For more information on PowerHA, see [high availability and disaster recovery](/docs/power-iaas?topic=power-iaas-ha-dr).
+Resiliency needs to be considered for both the infrastructure and application levels. This pattern does not address application or database-specific design.
+{: note}
 
-The following figure shows a configuration that uses IBM PowerHA SystemMirror for i using geographic mirroring.
+## Role of PowerHA SystemMirror for i
+{: #role-pha}
+
+This pattern implements a geographic disaster recovery model using two Power Virtual Server locations. A primary location hosts the active IBM i workload, while a secondary location is designated as the recovery site. Only one location is active at any time.
+
+Application data is placed in an Independent Auxiliary Storage Pool, which enables controlled activation of data at the recovery site. Storage replication between locations is performed using Global Replication Services, which provides asynchronous storage replication at the Power Virtual Server storage layer.
 
 ![Standard PHA](/images/standardpha.svg "PowerHA geographic mirroring diagram"){: caption="Figure 2: PowerHA geographic mirroring architecture" caption-side="bottom"}{: external download="standardpha.svg"}
 
-- Geographic mirroring refers to the IBM i host-based replication solution that is provided as a function of IBM PowerHA SystemMirror for i. 
-- Geographic mirroring is managed by IBM i storage management so that replication is performed on a disk page segment basis. When a page of data is written, storage management automatically manages the replication of this page to the remote system.
-- Geographic mirroring requires a two-node clustered environment and uses data port services. These data port services are provided by the System Licensed Internal Code (SLIC) to support the transfer of large volumes of data between a source node and a target node.
+## Role of Global Replication Services
+{: #role-grs}
+
+Global Replication Services provides asynchronous storage replication between paired Power Virtual Server locations. Replication operates at the storage layer and is independent of the IBM i operating system.
+
+Replication is performed using consistency group technology to maintain write order across replicated volumes. Because replication is asynchronous, some data loss may occur depending on replication lag at the time of failure. The effective recovery point is determined by the most recent completed consistency group.
+
+Replication traffic is managed by the Power Virtual Server service and does not traverse customer managed networks.
 
 ## Resiliency design considerations for disaster recovery
 {: #dr-design}
@@ -63,23 +73,5 @@ Review the key capabilities for disaster recovery design considerations:
 When a write operation is issued to a source volume, the changes are typically propagated to the target volume a few seconds after the data is written to the source volume. However, changes can occur on the source volume before the target volume verifies that it received the change. Because consistent copies of data are formed on the secondary site at set intervals, data loss is determined by the amount of time since the last consistency group was formed. If the system fails, Global Mirror might lose some data that was transmitted when the failure occurred.
 
 For more information, see [Global Replication Services Solution using {{site.data.keyword.IBM_notm}} {{site.data.keyword.powerSys_notm}}](https://cloud.ibm.com/media/docs/downloads/power-iaas/Global_Replication_Services_Solution_using_IBM_Power_Virtual_Server.pdf){: external}. You can also review the [locations](/docs/power-iaas?topic=power-iaas-getting-started-GRS) that support a global replication service.
-
-Consider the {{site.data.keyword.IBM_notm}} toolkit for IBM i from {{site.data.keyword.IBM_notm}} Technology Expert Labs for disaster recovery automation functions and capabilities on the {{site.data.keyword.cloud_notm}} by integrating {{site.data.keyword.powerSys_notm}} with the capabilities of GRS. With the toolkit, simplify and automate the operations of the disaster recovery solution. {{site.data.keyword.IBM_notm}} toolkit for IBM i Full System Replication enables automated disaster recovery functions and capabilities on the {{site.data.keyword.cloud_notm}} by integrating {{site.data.keyword.powerSys_notm}} with the capabilities of GRS. Clients can manage their DR environment that uses their existing IBM i skills. Review the following toolkit functions:
-
-- Full System Replication for {{site.data.keyword.IBM_notm}} IBM i {{site.data.keyword.powerSys_notm}}:
-    - Replicate your data from between {{site.data.keyword.cloud_notm}} sites
-    - Replicate the IBM i OS volumes
-
-- Disaster recovery services:
-    - Perform a virtual machine switch by deactivating a virtual machine from one site and activating its replicated virtual machine on another site.
-
-- Administrative Functions:
-    - Reduce outage time by activating your application on another {{site.data.keyword.IBM_notm}} site while performing required maintenance.
-
-- In order to obtain implementation hours for the labor effort for Global replication Service reach out to our Technology Expert Labs team: [technologyservices@ibm.com](mailto:technologyservices@ibm.com)
-
-- Validate [data center pairings](/docs/power-iaas?topic=power-iaas-getting-started-GRS) available for global replication service.
-
-The following image illustrates the use of GRS as the DR solution between two cloud data centers. 
 
 ![GRS](/images/grs.svg "GRS Diagram"){: caption="Figure 3: GRS Architecture" caption-side="bottom"}{: external download="grs.svg"}

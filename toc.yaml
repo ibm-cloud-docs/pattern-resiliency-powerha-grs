@@ -12,6 +12,11 @@ toc:
       id: overview
       topics:
       - overview.md
+      - topicgroup:
+          label: Use Cases
+          topics:
+          - topic: phagrsusecase.md
+            navtitle: Disaster recovery using PowerHA SystemMirror for i and Global Replication Services
   - navgroup:
       id: architecture
       topics:
@@ -52,8 +57,8 @@ toc:
       - topicgroup:
           label: Use Cases
           topics:
-          - topic: faq.md
-            navtitle: Multi-Region DR using PowerHA SystemMirror for i and Global Replication Service
+          - topic: phagrsusecase.md
+            navtitle: Disaster recovery using PowerHA SystemMirror for i and Global Replication Services
   - navgroup:
       id: reference
       topics:

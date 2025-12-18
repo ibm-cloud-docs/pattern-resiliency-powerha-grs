@@ -14,6 +14,7 @@ keywords: compute, architecture compute
 
 # Architecture decisions for compute
 {: #compute-decisions}
+
 | Architecture decision | Requirement | Decision | Rationale |
 |---|---|---|---|
 | Geographic disaster recovery for IBM i workloads | Provide compute capacity for IBM i logical partitions participating in site level disaster recovery | Power Virtual Server LPARs | Supports site level disaster recovery for IBM i workloads using PowerHA SystemMirror for i and Global Replication Services across Power Virtual Server locations. |

@@ -15,8 +15,6 @@ keywords:
 # Architecture decisions for storage
 {: #storage-decisions}
 
-## Architecture decisions for storage
-
 | Architecture decision | Requirement | Alternatives | Decision | Rationale |
 |---|---|---|---|---|
 | Primary storage for IBM i workloads | Provide highly available storage for IBM i application data | PowerVS managed storage tiers | PowerVS managed storage tiers | IBM i application data is stored in an Independent Auxiliary Storage Pool hosted on IBM Cloud managed PowerVS storage. |

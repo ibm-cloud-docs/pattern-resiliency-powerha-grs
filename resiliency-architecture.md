@@ -16,6 +16,7 @@ keywords:
 The following sections summarize the resiliency architecture decisions for workloads deployed on {{site.data.keyword.vpc_short}} infrastructure.
 
 ## Resiliency architecture decisions
+{: #resiliency-decisions}
 
 | Architecture decision | Requirement | Decision | Rationale |
 |---|---|---|---|

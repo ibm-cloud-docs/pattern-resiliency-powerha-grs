@@ -19,6 +19,7 @@ This section defines the technical, licensing, and operational requirements to i
 
 ## Platform requirements
 {: #requirements-platform}
+
 Platform requirements
 - IBM i 7.5 is installed on all participating IBM i logical partitions.
 - IBM i releases and PTF levels are compatible across the primary and recovery locations.
@@ -26,6 +27,7 @@ Platform requirements
 
 ## PowerHA software requirements
 {: #requirements-pha-software}
+
 - IBM PowerHA SystemMirror for i is installed on all participating IBM i logical partitions.
 - A PowerHA cluster is configured across the primary and recovery locations.
 - Cluster Resource Groups are defined to manage Independent Auxiliary Storage Pool activation and application recovery.
@@ -33,6 +35,7 @@ Platform requirements
 
 ## PowerHA licensing requirements
 {: #requirements-licensing}
+
 - IBM PowerHA SystemMirror for i is a separately licensed product and is not included with IBM i by default.
 - A valid PowerHA license is required on each participating IBM i logical partition, including both the primary and recovery systems.
 - PowerHA licensing is required regardless of whether the recovery system is actively running production workloads.
@@ -40,6 +43,7 @@ Platform requirements
 
 ## Storage requirements
 {: #requirements-storage}
+
 - Application data requiring disaster recovery protection resides in an Independent Auxiliary Storage Pool.
 - The system Auxiliary Storage Pool remains local to each location and is not replicated.
 - IBM Power Virtual Server block storage backed by IBM FlashSystem is used for all Independent Auxiliary Storage Pool volumes.
@@ -48,6 +52,7 @@ Platform requirements
 
 ## Compute requirements
 {: #requirements-coompute}
+
 - One IBM i logical partition is deployed at the primary location to host the production workload.
 - One IBM i logical partition is deployed at the recovery location to assume the production workload during a disaster recovery event.
 - The recovery location logical partition is sized to support the full production workload.
@@ -55,12 +60,14 @@ Platform requirements
 
 ## Network requirements
 {: #requirements-network}
+
 - Network connectivity exists between Power Virtual Server locations to support PowerHA orchestration, administrative access, and operational coordination.
 - Customer managed networks are not used for storage replication traffic.
 - Domain Name System configuration supports application access following disaster recovery activation.
 
 ## Operational requirements
 {: #requirements-operational}
+
 - Disaster recovery procedures are operationally initiated and controlled.
 - Procedures exist for failover, failback, and role reversal.
 - Regular disaster recovery testing is performed to validate recovery readiness.

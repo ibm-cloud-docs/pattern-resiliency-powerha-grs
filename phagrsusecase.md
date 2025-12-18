@@ -36,6 +36,10 @@ IBM PowerHA SystemMirror for i orchestrates disaster recovery operations. PowerH
 
 This separation of responsibilities aligns with IBM and Fortra best practices and simplifies operational recovery.
 
+Fortra provides validated best practices and reference implementations for deploying PowerHA SystemMirror for i with Global Replication Services in IBM Cloud environments. These practices are based on tested configurations, operational recovery scenarios, and real-world client deployments.
+
+Aligning with Fortra guidance helps ensure predictable disaster recovery behavior, correct handling of Independent Auxiliary Storage Pools (IASPs), and proper coordination between storage replication and IBM i cluster orchestration on Power Virtual Server.
+
 ## Architecture and deployment model
 {: #usecase-architecture-deployment}
 

@@ -32,7 +32,7 @@ This is a baseline solution pattern that captures the key design and architectur
 
 Actual customer implementations may vary based on workload characteristics, recovery objectives, regional availability, and operational requirements. Review the following decision tree to understand how this reference architecture aligns PowerHA and GRS capabilities with typical IBM i resiliency use cases in PowerVS environments.
 
-![Solution Decision Tree](/images/phagrsdtree.svg "Reference Summary"){: caption="Reference Architecture Summary for Deploying PowerHA SystemMirror for i and Global Replication Service on {{site.data.keyword.powerSysFull}}" caption-side="bottom"}{: external download="phagrsdtree.svg"}
+![Solution Decision Tree](/images/phagrsdtree.svg "Reference Summary"){: caption="Decision tree illustrating IBM i disaster recovery and resiliency options on PowerVS, including PowerHA SystemMirror and Global Replication Services (GRS)." caption-side="bottom"}{: external download="phagrsdtree.svg"}
 
 ## Architecture diagram
 {: #architecture-diagram}

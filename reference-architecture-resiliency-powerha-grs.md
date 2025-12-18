@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-12-17"
+lastupdated: "2025-12-18"
 
 subcollection: pattern-resiliency-powerha-grs
 
@@ -23,7 +23,7 @@ content-type: reference-architecture
 
 {{site.data.keyword.attribute-definition-list}}
 
-# {{site.data.keyword.powerSysFull}} resiliency on IBM i
+# IBM i Resiliency Pattern using PowerHA and Global Replication Services on PowerVS
 {: #power-virtual-server-on-ibmi}
 {: toc-content-type="reference-architecture"}
 {: toc-version="1.0"}

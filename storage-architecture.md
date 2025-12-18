@@ -15,10 +15,13 @@ keywords:
 # Architecture decisions for storage
 {: #storage-decisions}
 
+## Architecture decisions for storage
+
 | Architecture decision | Requirement | Alternatives | Decision | Rationale |
-|------|------|------|-------|-----|
-| Primary storage for local high availability workloads | Provide highly available storage for local high availability. | Flash Storage from IBM FS9500 series devices \n Tier 0 - 25 IOPS/GB \n Tier 1 - 10 IOPS/GB \n Tier 3 - 3 IOPS/GB \n Fixed5K IOPS | Matches production workload storage tier | LPARS share local storage |
-| Primary storage for secondary site workloads | Provide highly available storage for disaster recovery workloads by using Global Replication Services  | Match production storage tiers | Match production storage Tiers | Global Replication Services (GRS) does not support mixed Tiers for the same environment. Storage needs to match like for like – Tier 1 to Tier 1, Tier 3 to Tier 3 |
-| Backup Storage | Provide highly available storage for backups | Local Storage, Cloud Object Storage | Local storage + Cloud Object Storage | Local + Cloud Object Storage  | Local flashsystem storage is used for index and configuration repository. Cloud Object Storage is used for deduplication repository
-| Long term and backup storage | Provide storage for long-term retention | Cloud Object Storage, Local Flashsystem Storage | Cloud Object storage| Archiving data is offloaded to Cloud Object Storage for long term retention  |
+|---|---|---|---|---|
+| Primary storage for IBM i workloads | Provide highly available storage for IBM i application data | PowerVS managed storage tiers | PowerVS managed storage tiers | IBM i application data is stored in an Independent Auxiliary Storage Pool hosted on IBM Cloud managed PowerVS storage. |
+| Independent Auxiliary Storage Pool (IASP) usage | Isolate application data to support disaster recovery | System ASP | Independent Auxiliary Storage Pool | IASP is required to enable controlled activation of application data at the recovery site and is mandatory for PowerHA SystemMirror for i with Global Replication Services. |
+| Cross-location storage replication | Replicate application data between Power Virtual Server locations | Application-level replication | Global Replication Services | Global Replication Services provides asynchronous storage replication at the PowerVS storage layer and operates independently of the IBM i operating system. |
+| Storage tier consistency | Ensure compatible performance characteristics across sites | Mixed storage tiers | Match storage tiers between sites | Global Replication Services requires like-for-like storage tiers between primary and recovery locations to support consistent replication behavior. |
+| Recovery site storage provisioning | Provide storage to support disaster recovery activation | Reduced-capacity storage | Match production storage capacity | Recovery site storage must be provisioned to support full activation of the replicated Independent Auxiliary Storage Pool during a disaster recovery event. |
 {: caption="Storage architecture decisions" caption-side="bottom"}

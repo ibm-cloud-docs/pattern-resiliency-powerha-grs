@@ -15,10 +15,15 @@ keywords:
 
 The following sections summarize the resiliency architecture decisions for workloads deployed on {{site.data.keyword.vpc_short}} infrastructure.
 
-| Architecture decision | Requirement | Alternatives | Decision | Rationale |
-|------|-------|-------|-------|-----|
-| Backups | Backup IBM i workloads with a managed service | Image capture snapshots and FlashCopy \n \n Secure Automated Backup with Compass \n \n Veeam \n \n {{site.data.keyword.IBM_notm}} Storage Protect \n \n Falconstor VTL \n \n Bring Your Own Backup | FalconStor VTL | FalconStor Virtual Tape Library (VTL) is an optimized backup and deduplication solution that provides tape library emulation, high-speed backup or restore, data archival to supported S3 clouds for long-term storage, global data deduplication, enterprise-wide replication, and long-term cloud-based container archive, without requiring changes to the existing environment. |
-| High availability | Local OS level high availability | Different server placement group \n \n PowerHA SystemMirror for i | PowerHA SystemMirror for i | Local availability optimization by allowing for the dynamic reconfiguration of running clusters. \n \n Minimize unscheduled downtime in response to unplanned cluster component failures. |
-| Disaster recovery {{site.data.keyword.powerSys_notm}} workloads                      | Secondary data center with SAN-to-SAN replication  | Global Replication Services (GRS) and {{site.data.keyword.IBM_notm}} toolkit for IBM i full system replication                                                              | Global Replication Services (GRS) and IBM i toolkit for IBM i full system replication  | Disaster recovery capability for RPO \< 1 hours, RTO \< 1 hours. \n \n {{site.data.keyword.IBM_notm}} toolkit for IBM i from technology services enables automated disaster recovery functions and capabilities on the {{site.data.keyword.cloud_notm}} by integrating {{site.data.keyword.powerSys_notm}} with the capabilities of GRS. |
-| Disaster recovery {{site.data.keyword.powerSys_notm}} workloads: Cost optimization | | Implement a shared processor pool \n Disaster recovery and nonproduction systems to share infrastructure. | Implement a shared processor pool | Set up shared processor pool to reserve capacity in the secondary region. Set up disaster recovery systems on minimum sized VMs to save operating cost.                                                                               |
+## Resiliency architecture decisions
+
+| Architecture decision | Requirement | Decision | Rationale |
+|---|---|---|---|
+| Resiliency scope | Protect IBM i workloads from site-level failures | Geographic disaster recovery | This pattern is designed to recover from the loss of an entire Power Virtual Server location and does not provide local high availability. |
+| Resiliency model | Define recovery behavior across locations | Active–passive site model | Only one site is active at any time. Applications are recovered at the secondary site during a disaster event. |
+| Data replication method | Replicate application data between sites | Global Replication Services | Global Replication Services provides asynchronous storage replication at the PowerVS storage layer without requiring customer-managed compute resources. |
+| Recovery orchestration | Coordinate failover and failback operations | PowerHA SystemMirror for i | PowerHA manages site roles, IASP activation, and application startup sequencing during recovery. |
+| Data isolation | Enable controlled activation of application data | Independent Auxiliary Storage Pool | IASP isolates application data and is required to support recovery at the secondary site using PowerHA and GRS. |
+| Recovery initiation | Control when recovery occurs | Manual, operationally initiated | Recovery actions are initiated by operations staff to avoid unintended site role changes. |
+| Recovery objectives | Define expected recovery outcomes | RPO ≈ 15 minutes, RTO ≈ 1 hour | Recovery objectives align with asynchronous replication behavior and operational recovery processes. |
 {: caption="Resiliency architecture decisions" caption-side="bottom"}

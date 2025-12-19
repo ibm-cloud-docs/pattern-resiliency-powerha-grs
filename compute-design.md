@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-12-18"
+lastupdated: "2025-12-19"
 
 subcollection: pattern-resiliency-powerha-grs
 
@@ -33,7 +33,9 @@ In this pattern, compute resources are provisioned in two PowerVS locations: a p
 
 Each PowerVS location hosts an IBM i LPAR configured to participate in the PowerHA SystemMirror for i cluster. The primary-site LPAR runs the active production workload, while the recovery-site LPAR remains inactive or lightly utilized until a disaster recovery event occurs.
 
-The recovery-site LPAR must be sized to support the full production workload upon activation. Processor, memory, and operating system configuration should be equivalent or compatible with the primary-site LPAR to ensure predictable recovery behavior.
+IBM Power Virtual Server supports Shared Processor Pools (SPPs), which allow processor capacity to be shared and dynamically allocated across virtual server instances. This enables recovery-site IBM i LPARs to be configured with reduced baseline processor entitlement while still having access to additional processor capacity during a disaster recovery event, providing a cloud-based alternative to traditional on-premises Capacity Backup (CBU) models.
+
+The recovery-site LPAR must be capable of supporting the full production workload upon activation. Processor, memory, and operating system configuration should be equivalent or compatible with the primary-site LPAR to ensure predictable recovery behavior.
 
 
 
@@ -59,6 +61,6 @@ The shared processor pool (SPP) reserves only compute capacity, not the memory. 
 ## Capacity planning considerations
 {: #design-capacity}
 
-When designing compute capacity for this pattern, consider processor and memory requirements necessary to support peak production workloads during recovery operations. The recovery-site LPAR must be capable of assuming the full production workload, and compute sizing should reflect expected utilization during disaster recovery scenarios.
+When designing compute capacity for this pattern, ensure that processor and memory resources are sufficient to support peak production workloads during disaster recovery operations. While processor capacity can be dynamically adjusted using Shared Processor Pools, memory must be fully provisioned on the recovery-site IBM i LPAR prior to recovery.
 
 Operating system versions, PTF levels, and application configurations must be compatible across sites. Disaster recovery testing should be performed regularly to validate that compute capacity at the recovery site meets recovery objectives.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-12-18"
+lastupdated: "2025-12-19"
 
 subcollection: pattern-resiliency-powerha-grs
 
@@ -21,7 +21,7 @@ This section defines the technical, licensing, and operational requirements to i
 {: #requirements-platform}
 
 Platform requirements
-- IBM i 7.5 is installed on all participating IBM i logical partitions.
+- IBM i 7.4 or 7.5 is installed on all participating IBM i logical partitions.
 - IBM i releases and PTF levels are compatible across the primary and recovery locations.
 - IBM Power Virtual Server is deployed in two supported locations that are eligible for Global Replication Services.
 
@@ -39,7 +39,8 @@ Platform requirements
 - IBM PowerHA SystemMirror for i is a separately licensed product and is not included with IBM i by default.
 - A valid PowerHA license is required on each participating IBM i logical partition, including both the primary and recovery systems.
 - PowerHA licensing is required regardless of whether the recovery system is actively running production workloads.
-- PowerHA licensing requirements are the same for IBM Power Virtual Server as for on premises IBM Power Systems.
+- On IBM Power Virtual Server, PowerHA can be selected and purchased directly as part of the IBM i virtual server instance (VSI) and is billed through the IBM Cloud consumption model.
+- PowerHA licensing on IBM Power Virtual Server differs from traditional on-premises IBM Power Systems licensing and does not require separate on-prem PowerHA entitlements.
 
 ## Storage requirements
 {: #requirements-storage}

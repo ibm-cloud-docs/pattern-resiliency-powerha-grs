@@ -61,6 +61,6 @@ The shared processor pool (SPP) reserves only compute capacity, not the memory. 
 ## Capacity planning considerations
 {: #design-capacity}
 
-When designing compute capacity for this pattern, ensure that processor and memory resources are sufficient to support peak production workloads during disaster recovery operations. While processor capacity can be dynamically adjusted using Shared Processor Pools, memory must be fully provisioned on the recovery-site IBM i LPAR prior to recovery.
+When designing compute capacity for this pattern, ensure that processor and memory resources are sufficient to support peak production workloads during disaster recovery operations. Processor capacity can be increased or reallocated using Shared Processor Pools (SPPs) during a recovery event; however, memory must be provisioned on the recovery-site IBM i LPAR in advance to support production workload execution.
 
 Operating system versions, PTF levels, and application configurations must be compatible across sites. Disaster recovery testing should be performed regularly to validate that compute capacity at the recovery site meets recovery objectives.

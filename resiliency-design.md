@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-12-18"
+lastupdated: "2025-12-19"
 
 subcollection: pattern-resiliency-powerha-grs
 
@@ -18,9 +18,6 @@ keywords:
 Resiliency is the ability of a workload to continue to meet defined service level objectives and recover from service disruptions while maintaining required availability targets. In this pattern, resiliency is implemented at the infrastructure and operating system orchestration layers to support site level recovery of IBM i workloads running on IBM Power Virtual Server.
 
 This pattern focuses on geographic resiliency, sometimes informally referred to as global high availability, by enabling controlled recovery of workloads between geographically separated Power Virtual Server locations. Local operating system high availability within a single location is not a primary objective of this design.
-
-Resiliency needs to be considered for both the infrastructure and application levels. This pattern does not address application or database-specific design.
-{: note}
 
 It's important to validate what offerings are available in the regions you are deploying. Check for paired data centers and validate if they meet the deployment criteria for client-specific requirements.
 

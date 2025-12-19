@@ -20,6 +20,9 @@ This use case describes a site-level disaster recovery (DR) solution for IBM i w
 This architecture is intentionally focused on disaster recovery across geographically separated Power Virtual Server locations.
 Local high availability within a single Power Virtual Server location, as well as backup, archival storage, and long-term data retention, are supported by IBM i and PowerVS but are outside the scope of this document. Customers commonly deploy this DR architecture alongside local HA or backup solutions based on their broader availability and data protection requirements.
 
+Local high availability and backup architectures for IBM i on Power Virtual Server are documented in separate patterns and are not covered in this document.
+{: note}
+
 ## Business context
 {: #usecase-business-context}
 
@@ -91,3 +94,9 @@ This use case is not appropriate for environments requiring zero data loss, sub 
 {: #usecase-summary}
 
 This use case demonstrates how IBM PowerHA SystemMirror for i and Global Replication Services can be combined on IBM Power Virtual Server to deliver a robust, supportable disaster recovery solution for IBM i workloads. By leveraging Independent Auxiliary Storage Pools, Cluster Resource Group based orchestration, and IBM Cloud managed storage replication, the solution provides predictable recovery behavior while aligning with IBM Cloud and Fortra best practices.
+
+## Related patterns
+{: #related-patterns}
+
+- **[IBM Power Virtual Server resiliency on IBM i](/docs/pattern-pvs-ibmi-resiliency?topic=pattern-pvs-ibmi-resiliency-power-virtual-server-on-ibmi).**
+Covers local high availability and backup architectures for IBM i on Power Virtual Server

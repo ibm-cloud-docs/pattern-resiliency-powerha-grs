@@ -98,6 +98,6 @@ This use case demonstrates how IBM PowerHA SystemMirror for i and Global Replica
 ## Related patterns
 {: #related-patterns}
 
-- **[IBM Power Virtual Server resiliency on IBM i](/docs/pattern-pvs-ibmi-resiliency?topic=pattern-pvs-ibmi-resiliency-power-virtual-server-on-ibmi).**
+- [IBM Power Virtual Server resiliency on IBM i](/docs/pattern-pvs-ibmi-resiliency?topic=pattern-pvs-ibmi-resiliency-power-virtual-server-on-ibmi)
 
-Covers local high availability and backup architectures for IBM i on Power Virtual Server
+Covers local high availability and backup architectures for IBM i on Power Virtual Server.

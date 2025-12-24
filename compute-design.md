@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-12-19"
+lastupdated: "2025-12-24"
 
 subcollection: pattern-resiliency-powerha-grs
 
@@ -56,7 +56,7 @@ During a disaster recovery event, PowerHA SystemMirror for i coordinates the act
 
 This pattern does not require controller or quorum LPARs. All disaster recovery orchestration is performed directly by PowerHA SystemMirror for i running on the IBM i LPARs, while Global Replication Services independently manages storage replication at the PowerVS infrastructure layer.
 
-The shared processor pool (SPP) reserves only compute capacity, not the memory. For more information, see [The shared processor pool](/docs/power-iaas?topic=power-iaas-manage-SPP) and in [Managing shared processor pools](https://www.ibm.com/docs/en/power9?topic=systems-managing-shared-processor-pools){: external}. For more information on the Global Replication Service, see [GRS](/docs/power-iaas?topic=power-iaas-getting-started-GRS)
+The shared processor pool (SPP) reserves only compute capacity, not the memory. For more information, see [The shared processor pool](/docs/power-iaas?topic=power-iaas-manage-SPP) and in [Managing shared processor pools](https://www.ibm.com/docs/en/power9/0000-REF?topic=POWER9_REF/p9efd/p9efd_manage_shared_proc_pools.html){: external}. For more information on the Global Replication Service, see [GRS](/docs/power-iaas?topic=power-iaas-getting-started-GRS)
 
 ## Capacity planning considerations
 {: #design-capacity}

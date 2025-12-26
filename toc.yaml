@@ -5,7 +5,7 @@ toc:
     content-type: deployment
     href: /docs/pattern-resiliency-powerha-grs
     path: pattern-resiliency-powerha-grs
-    description: IBM i Resiliency Pattern using PowerHA and Global Replication Services on PowerVS
+    description: Resilient IBM i workloads using PowerHA and Global Replication Services on PowerVS
     label: PowerHA and Global Replication Services on PowerVS
   entries:
   - navgroup:

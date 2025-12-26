@@ -13,8 +13,12 @@
         "href": "/docs/pattern-resiliency-powerha-grs?topic=pattern-resiliency-powerha-grs-power-virtual-server-on-ibmi"
       },
       {
-        "title": "Use Case",
-        "href": "/docs/pattern-resiliency-powerha-grs?topic=pattern-resiliency-powerha-grs-dr-usecase"
+        "title": "Design Considerations",
+        "href": "/docs/pattern-resiliency-powerha-grs?topic=pattern-resiliency-powerha-grs-compute-design"
+      },
+      {
+        "title": "Architecture Decisions",
+        "href": "/docs/pattern-resiliency-powerha-grs?topic=pattern-resiliency-powerha-grs-compute-decisions"
       }
     ]
   },
@@ -40,14 +44,5 @@
       "href": "/docs/pattern-pvs-ibmi-resiliency",
       "deployable": false
     }
-  ],
-  "section_updates": {
-    "view_more": "/docs/overview?topic=overview-whatsnew",
-    "tiles": [
-      {
-        "date": "18 December 2025",
-        "title": "IBM i Resiliency Pattern using PowerHA and Global Replication Services on PowerVS is available for users in the IBM Cloud catalog. "
-      }
-    ]
-  }
+  ]
 }

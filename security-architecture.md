@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-12-18"
+lastupdated: "2025-12-30"
 
 subcollection: pattern-resiliency-powerha-grs
 
@@ -16,7 +16,7 @@ keywords:
 The following are security architecture decisions for the Power Virtual Server Resiliency on IBM i pattern.
 
 | Architecture decision | Requirement | Alternatives | Decision | Rationale |
-|------|------|-------|-------|-------|
+| - | - | - | - | - |
 | Encrypt data at rest: Workloads | Ability to encrypt data at rest |  | {{site.data.keyword.powerSys_notm}} storage encryption with provider-managed keys | * {{site.data.keyword.powerSys_notm}} uses {{site.data.keyword.IBM_notm}} FlashSystem Storage with AES-256 (Advanced Encryption Standard) hardware-based encryption \n * For customer-managed keys by selecting a Key Management Service (KMS) for the respective storage service |
 | Encrypt data at rest: Backups | Ability to encrypt backups | | Storage Encryption with provider-managed keys | * All objects that are stored in {{site.data.keyword.cos_full_notm}} are encrypted by using randomly generated keys and an all-or-nothing-transform (AONT). \n * FalconStor provides AES-256 encryption for backups through its StorSafe VTL solution, ensuring data security both at rest and during transmission. Additionally, FalconStor offers key management capabilities for greater control over the security of backup archives. |
 | Identity Access and Role Management (IDM)   | Securely authenticate users for platform services and control access to resources consistently across {{site.data.keyword.cloud_notm}}| | {{site.data.keyword.cloud_notm}} IAM | * Use IAM access policies to assign users, service IDs, and trusted profiles access to resources within the {{site.data.keyword.cloud_notm}} account.                                                                                                |

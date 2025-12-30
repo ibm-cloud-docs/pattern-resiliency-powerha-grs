@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-12-18"
+lastupdated: "2025-12-30"
 
 subcollection: pattern-resiliency-powerha-grs
 
@@ -16,7 +16,7 @@ keywords:
 {: #storage-decisions}
 
 | Architecture decision | Requirement | Alternatives | Decision | Rationale |
-|---|---|---|---|---|
+| - | - | - | - | - |
 | Primary storage for IBM i workloads | Provide highly available storage for IBM i application data | PowerVS managed storage tiers | PowerVS managed storage tiers | IBM i application data is stored in an Independent Auxiliary Storage Pool hosted on IBM Cloud managed PowerVS storage. |
 | Independent Auxiliary Storage Pool (IASP) usage | Isolate application data to support disaster recovery | System ASP | Independent Auxiliary Storage Pool | IASP is required to enable controlled activation of application data at the recovery site and is mandatory for PowerHA SystemMirror for i with Global Replication Services. |
 | Cross-location storage replication | Replicate application data between Power Virtual Server locations | Application-level replication | Global Replication Services | Global Replication Services provides asynchronous storage replication at the PowerVS storage layer and operates independently of the IBM i operating system. |

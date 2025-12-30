@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-12-18"
+lastupdated: "2025-12-30"
 
 subcollection: pattern-resiliency-powerha-grs
 
@@ -19,7 +19,7 @@ The following sections summarize the resiliency architecture decisions for workl
 {: #resiliency-decisions}
 
 | Architecture decision | Requirement | Decision | Rationale |
-|---|---|---|---|
+| - | - | - | - |
 | Resiliency scope | Protect IBM i workloads from site-level failures | Geographic disaster recovery | This pattern is designed to recover from the loss of an entire Power Virtual Server location and does not provide local high availability. |
 | Resiliency model | Define recovery behavior across locations | Active–passive site model | Only one site is active at any time. Applications are recovered at the secondary site during a disaster event. |
 | Data replication method | Replicate application data between sites | Global Replication Services | Global Replication Services provides asynchronous storage replication at the PowerVS storage layer without requiring customer-managed compute resources. |

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-12-18"
+lastupdated: "2025-12-30"
 
 subcollection: pattern-resiliency-powerha-grs
 
@@ -16,7 +16,7 @@ keywords:
 {: #networking-architecture}
 
 | Architecture decision |Requirement | Alternatives | Decision | Rationale |
-|-----|-----|-----|-----|------|
+| - | - | - | - | - |
 | Bring Your Own IP and edge gateway | The capability that is needed for customers to provide isolation, security, and edge routing services. | Edge gateways: Palo Alto, Fortinet, and F5 with the client choice. | Gateway: Client choice \n {{site.data.keyword.vpc_short}} facilitates Bring Your Own IP | Edge gateway is a client choice based on the requirements \n \n The client can [bring their own subnet](/docs/vpc?topic=vpc-configuring-address-prefixes) IP address range to an {{site.data.keyword.vpc_full}} \n \n Generic Routing Encapsulation (GRE) Tunnel connecting the {{site.data.keyword.powerSysShort}} to VPC for routes to be advertised across on-premises environment. |
 | Network segmentation and isolation | Deploy workloads in an isolated environment and enforce information flow policies. | - Subnets \n - Security groups \n - ACLs \n - Workspaces | VPCs and subnets \n \n Separate {{site.data.keyword.powerSysShort}} LPARs | Native VPC isolation by using separate VPCs and subnets environments for separation of the workload \n \n {{site.data.keyword.powerSysShort}} isolation \n \n Security group with inbound rule, address prefix, and subnet for Secure Automated Backup with Compass. |
 | Cloud native connectivity to cloud services | Provide secure connection to cloud services | - VPC Gateway and Virtual Private Endpoints (VPE) \n - Private cloud service endpoints \n - Public cloud service endpoints | VPC Gateway and Virtual Private Endpoints (VPE) | VPC Gateway and Virtual Private Endpoints enable connectivity to {{site.data.keyword.cloud_notm}} services by using private IP addresses allocated from a VPC subnet.|

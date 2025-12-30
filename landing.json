@@ -1,0 +1,48 @@
+{
+  "version": 2,
+  "title": "Resilient IBM i workloads using PowerHA and Global Replication Services on PowerVS",
+  "introduction": "This pattern describes how IBM i 7.5 and PowerHA SystemMirror for i combined with IBM Cloud Power Virtual Server Global Replication Services (GRS) enables high availability (HA) and disaster recovery (DR) for mission-critical workloads. The intent is to provide a reusable reference architecture, implementation sequencing, operational model, and validation approach that customers can apply to build resilient IBM i services in the cloud.",
+  "section_topics": {
+    "links": [
+      {
+        "title": "Welcome to PowerHA SystemMirror for i and Global Replication Services on PowerVS",
+        "href": "/docs/pattern-resiliency-powerha-grs?topic=pattern-resiliency-powerha-grs-overview"
+      },
+      {
+        "title": "Reference Architecture",
+        "href": "/docs/pattern-resiliency-powerha-grs?topic=pattern-resiliency-powerha-grs-power-virtual-server-on-ibmi"
+      },
+      {
+        "title": "Design Considerations",
+        "href": "/docs/pattern-resiliency-powerha-grs?topic=pattern-resiliency-powerha-grs-compute-design"
+      },
+      {
+        "title": "Architecture Decisions",
+        "href": "/docs/pattern-resiliency-powerha-grs?topic=pattern-resiliency-powerha-grs-compute-decisions"
+      }
+    ]
+  },
+  "section_highlights": [
+    {
+      "title": "Configuring PowerHA with Global Replication Services (7.5)",
+      "description": "This document explains how to configure PowerHA SystemMirror for i on IBM Power Virtual Server to support IBM i disaster recovery using Independent Auxiliary Storage Pools.",
+      "href": "https://fortradocs.atlassian.net/wiki/spaces/IWT/pages/2985656345/Configuring+PowerHA+with+Global+Replication+Services+7.5",
+      "type": "blog",
+      "recommended": true
+    },
+    {
+      "title": "PowerHA SystemMirror for i Fortra Wiki",
+      "description": "Learning resources for PowerHA SystemMirror for i",
+      "href": "https://fortradocs.atlassian.net/wiki/spaces/IWT/pages/163577866/PowerHA+SystemMirror+for+i",
+      "type": "blog",
+      "recommended": true
+    }
+  ],
+  "section_architectures": [
+    {
+      "title": "IBM Power Virtual Server for IBM i reference architecture",
+      "href": "/docs/pattern-pvs-ibmi-resiliency",
+      "deployable": false
+    }
+  ]
+}

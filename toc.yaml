@@ -1,0 +1,62 @@
+toc:
+  properties:
+    subcollection: pattern-resiliency-powerha-grs
+    audience: solution
+    content-type: deployment
+    href: /docs/pattern-resiliency-powerha-grs
+    path: pattern-resiliency-powerha-grs
+    description: Resilient IBM i workloads using PowerHA and Global Replication Services on PowerVS
+    label: PowerHA and Global Replication Services on PowerVS
+  entries:
+  - navgroup:
+      id: overview
+      topics:
+      - overview.md
+      - topicgroup:
+          label: Use case
+          topics:
+          - topic: phagrsusecase.md
+            navtitle: Disaster recovery using PowerHA SystemMirror for i and Global Replication Services
+          - topic: phagrsusecasereq.md
+            navtitle: Use case requirements
+  - navgroup:
+      id: architecture
+      topics:
+      - reference-architecture-resiliency-powerha-grs.md
+  - navgroup:
+      id: plan
+      topics:
+      - topicgroup:
+          label: Design considerations
+          topics:
+          - topic: compute-design.md
+            navtitle: Compute
+          - topic: storage-design.md
+            navtitle: Storage
+          - topic: networking-design.md
+            navtitle: Networking
+          - topic: security-design.md
+            navtitle: Security
+          - topic: resiliency-design.md
+            navtitle: Resiliency
+          - topic: service-management-design.md
+            navtitle: Service management
+      - topicgroup:
+          label: Architecture decisions
+          topics:
+          - topic: compute-architecture.md
+            navtitle: Compute
+          - topic: storage-architecture.md
+            navtitle: Storage
+          - topic: networking-architecture.md
+            navtitle: Networking
+          - topic: security-architecture.md
+            navtitle: Security
+          - topic: resiliency-architecture.md
+            navtitle: Resiliency
+          - topic: service-management-architecture.md
+            navtitle: Service management
+  - navgroup:
+      id: reference
+      topics:
+      - references.md

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-12-30"
+  years: 2026
+lastupdated: "2026-01-21"
 
 subcollection: pattern-resiliency-powerha-grs
 
@@ -16,7 +16,7 @@ keywords: compute, architecture compute
 {: #compute-decisions}
 
 | Architecture decision | Requirement | Decision | Rationale |
-| - | - | - | - | - |
+| - | - | - | - |
 | Geographic disaster recovery for IBM i workloads | Provide compute capacity for IBM i logical partitions participating in site level disaster recovery | Power Virtual Server LPARs | Supports site level disaster recovery for IBM i workloads using PowerHA SystemMirror for i and Global Replication Services across Power Virtual Server locations. |
 | PowerHA SystemMirror for i orchestration | Provide compute for recovery orchestration | Power Virtual Server LPARs | PowerHA runs directly on IBM i logical partitions to manage site roles, Independent Auxiliary Storage Pool activation, and application startup without requiring additional controller systems. |
 | Global Replication Services replication | Provide storage replication capability between Power Virtual Server locations | IBM Cloud managed service | Global Replication Services is delivered as a managed service and does not require customer provisioned compute resources. |
